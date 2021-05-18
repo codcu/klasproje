@@ -1,0 +1,127 @@
+def bos():
+    print('__')
+    print('|   |')
+    print('|')
+    print('|')
+    print('|')
+    print('|___')
+def h1():
+    print('__')
+    print('|   |')
+    print('|   O')
+    print('|')
+    print('|')
+    print('|___')
+def h2():
+    print('__')
+    print('|   |')
+    print('|  \O')
+    print('|')
+    print('|')
+    print('|___')
+def h3():
+    print('__')
+    print('|   |')
+    print('|  \O/')
+    print('|')
+    print('|')
+    print('|___')
+def h4():
+    print('__')
+    print('|   |')
+    print('|  \O/')
+    print('|   |')
+    print('|')
+    print('|___')
+def h6():
+    print('__')
+    print('|   |')
+    print('|  \O/')
+    print('|   |')
+    print('|  / \ ')
+    print('|___')
+def h5():
+    print('__')
+    print('|   |')
+    print('|  \O/')
+    print('|   |')
+    print('|  / ')
+    print('|___')
+def h6():
+    print('__')
+    print('|   |')
+    print('|  \O/')
+    print('|   |')
+    print('|  / \ ')
+    print('|___')
+word = input("kelimeyi giriniz.")
+cizgilist = []
+bosluksayisi = 0
+for k in word:
+    if k == " ":
+        cizgilist.append(" ")
+        bosluksayisi += 1
+    else:
+        cizgilist.append("_")
+print(f'{len(word)-bosluksayisi} harfli.')
+print(f'{bosluksayisi+1} kelimeden oluşuyor.')
+girilen = []
+hak = 0
+bos()
+while hak<6 and "".join(cizgilist) != word :
+    a = 0
+    print("".join(cizgilist))
+    d1 = input("harf:")
+    if d1 in girilen:
+        print("zaten kullandınız.")
+        continue
+    elif len(d1)==1:
+        girilen.append(d1)
+        if d1 in word:
+           for karakter in word:
+               if karakter == d1:
+                   cizgilist[a]=d1
+                   a += 1
+               else:
+                   a +=1
+        else:
+            print(" harf yok ")
+            hak += 1
+            if hak == 1:
+                h1()
+            elif hak == 2:
+                h2()
+            elif hak == 3:
+                h3()
+            elif hak == 4:
+                h4()
+            elif hak == 5:
+                h5()
+            elif hak == 6:
+                h6()
+    elif d1 == word:
+        print("helal olsun be doru bildiniz.")
+        break
+    else:
+        hak += 1
+        if hak == 1:
+            h1()
+        elif hak == 2:
+            h2()
+        elif hak == 3:
+            h3()
+        elif hak == 4:
+            h4()
+        elif hak == 5:
+            h5()
+        elif hak == 6:
+            h6()
+if "".join(cizgilist) == word:
+    print("".join(cizgilist))
+    print("kelimeyi doru bildiniz.")
+elif d1 == word:
+    print("")
+else:
+    print("Malesef bilemediniz.")
+    print(f'kelime = {word}')
+
